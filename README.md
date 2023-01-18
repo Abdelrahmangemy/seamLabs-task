@@ -5,5 +5,5 @@ Api foulder into app/http/controller that contain :
 second is CountRange that implement point 1 in part one
 third is indexOfString that implement point 2 of part 1
 fourth is UserController that implement part 2 and foulder Auth contain two controller one for register and another for login
-I also update the user model and its migration 
+I also updated the user model and its migration 
 also added the routes needed into api.php
