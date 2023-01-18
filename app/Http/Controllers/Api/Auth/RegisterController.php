@@ -13,12 +13,12 @@ class RegisterController extends Controller
 {
     function register(Request $request)
     {
-        Validator::make($data, [
-            'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phoneNumber' => ['required','numeric','digits:10'],
-            'dateOfBirth' => ['required','date','date_format','Y-m-d','before:today']
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'phoneNumber' => 'required|numeric|digits:10',
+            'dateOfBirth' => 'required|date|date_format|Y-m-d|before:today'
         ]);
 
         $user = User::firstOrNew(['email'=>$request->email]) ;
@@ -35,7 +35,7 @@ class RegisterController extends Controller
             'form_params' => [
                 'grant_type' => 'password',
                 'client_id' => '2',
-                'client_secret' => 'aARNIiVCj4Ya1yfzQ7fSmodYVaCl0g9QfldbJJG2',
+                'client_secret' => 'jC5NMxRlXmT3UOYsdAWrAH2QAA77iPqpXbiB60KD',
                 'username' => $request->email,
                 'password' => $request->password,
                 'scope' => '',
